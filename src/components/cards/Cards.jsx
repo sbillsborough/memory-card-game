@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 
 function Cards() {
   const [images, setImages] = useState([]);
+  const [imageId, setImageId] = useState([]);
   const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
+
+  const handleClick = () => {
+    console.log("image clicked!");
+  };
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -42,6 +47,7 @@ function Cards() {
                 src={image.src.medium}
                 alt={image.photographer}
                 className="w-full h-auto"
+                onClick={handleClick}
               />
               <p className="p-2 text-sm text-gray-600">{image.photographer}</p>
             </div>

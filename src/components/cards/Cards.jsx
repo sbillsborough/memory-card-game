@@ -4,6 +4,8 @@ function Cards() {
   const [images, setImages] = useState([]);
   const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
+  console.log(images);
+
   useEffect(() => {
     const fetchImages = async () => {
       try {

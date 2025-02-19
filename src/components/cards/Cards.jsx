@@ -2,11 +2,22 @@ import { useEffect, useState } from "react";
 
 function Cards() {
   const [images, setImages] = useState([]);
-  const [imageId, setImageId] = useState([]);
+  const [imageId, setImageId] = useState([]); // Store the clicked image IDs
   const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
-  const handleClick = () => {
-    console.log("image clicked!");
+  // Function to handle image click
+  const handleClick = (id) => {
+    console.log("image clicked:", id);
+
+    if (imageId.includes(id)) {
+      console.log("Already clicked! Ressetting...");
+      setImageId([]); // Reset if the same image is clicked again
+    } else {
+      setImageId([...imageId, id]); // Stores the clicked image ID
+    }
+
+    // Shuffle images after click
+    setImages((prevImages) => [...prevImages].sort(() => Math.random() - 0.5));
   };
 
   useEffect(() => {
@@ -47,7 +58,7 @@ function Cards() {
                 src={image.src.medium}
                 alt={image.photographer}
                 className="w-full h-auto"
-                onClick={handleClick}
+                onClick={() => handleClick(image.id)}
               />
               <p className="p-2 text-sm text-gray-600">{image.photographer}</p>
             </div>

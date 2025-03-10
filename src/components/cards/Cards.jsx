@@ -48,20 +48,16 @@ function Cards() {
   return (
     <div>
       <h3>Cards</h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <div className="grid">
         {images.length > 0 ? (
           images.map((image) => (
-            <div
-              key={image.id}
-              className="rounded-lg shadow-lg overflow-hidden"
-            >
+            <div key={image.id} className="card-container-div">
               <img
                 src={image.src.medium}
                 alt={image.photographer}
-                className="w-full h-auto"
+                className="cards"
                 onClick={() => handleClick(image.id)}
               />
-              <p className="p-2 text-sm text-gray-600">{image.photographer}</p>
             </div>
           ))
         ) : (

@@ -1,3 +1,12 @@
-h3 {
-  color: red;
+.grid {
+  width: 790px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cards {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
 }

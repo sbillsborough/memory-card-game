@@ -51,10 +51,7 @@ function Cards() {
       <div className="grid">
         {images.length > 0 ? (
           images.map((image) => (
-            <div
-              key={image.id}
-              className="rounded-lg shadow-lg overflow-hidden"
-            >
+            <div key={image.id} className="card-container-div">
               <img
                 src={image.src.medium}
                 alt={image.photographer}

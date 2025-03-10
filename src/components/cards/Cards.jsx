@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Cards.css";
 
 function Cards() {
   const [images, setImages] = useState([]);

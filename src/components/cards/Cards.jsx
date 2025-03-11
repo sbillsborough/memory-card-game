@@ -3,7 +3,6 @@ import "./Cards.css";
 
 function Cards() {
   const [images, setImages] = useState([]);
-  const [imageId, setImageId] = useState([]); // Store the clicked image IDs
   const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
   // Function to handle image click

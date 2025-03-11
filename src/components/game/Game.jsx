@@ -22,7 +22,7 @@ function Game() {
 
   return (
     <div>
-      <ScoreBoard currentScore={imageId.length} />
+      <ScoreBoard currentScore={imageId.length} bestStreak={bestStreak} />
       <Cards handleClick={handleClick} />
     </div>
   );

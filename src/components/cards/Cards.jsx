@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import "./Cards.css";
 
-function Cards({ handleClick, images }) {
+function Cards({ handleClick, images = [] }) {
   return (
     <div>
       <h3>Cards</h3>
@@ -10,8 +9,8 @@ function Cards({ handleClick, images }) {
           images.map((image) => (
             <div key={image.id} className="card-container-div">
               <img
-                src={image.src.medium}
-                alt={image.photographer}
+                src={image.src?.medium}
+                alt={image.photographer || "Unknown Photographer"}
                 className="cards"
                 onClick={() => handleClick(image.id)}
               />

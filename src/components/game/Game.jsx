@@ -3,11 +3,10 @@ import { Cards } from "./Cards";
 import { ScoreBoard } from "./ScoreBoard";
 
 function Game() {
-  const [imageId, setImageId] = useState([]); // Track clicked images
-  const [bestStreak, setBestStreak] = useState(0); // Track highest score
-  const [images, setImages] = useState([]); // Store images for shuffling
+  const [imageId, setImageId] = useState([]); // Tracks clicked images
+  const [bestStreak, setBestStreak] = useState(0); // Tracks highest score
+  const [images, setImages] = useState([]); // Stores images for shuffling
 
-  // Fetch images in Game.jsx so we can shuffle them
   useEffect(() => {
     const fetchImages = async () => {
       try {

@@ -1,24 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Cards.css";
 
-function Cards() {
+function Cards({ handleClick }) {
   const [images, setImages] = useState([]);
-  const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
-
-  // Function to handle image click
-  const handleClick = (id) => {
-    console.log("image clicked:", id);
-
-    if (imageId.includes(id)) {
-      console.log("Already clicked! Ressetting...");
-      setImageId([]); // Reset if the same image is clicked again
-    } else {
-      setImageId([...imageId, id]); // Stores the clicked image ID
-    }
-
-    // Shuffle images after click
-    setImages((prevImages) => [...prevImages].sort(() => Math.random() - 0.5));
-  };
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -27,7 +11,7 @@ function Cards() {
           "https://api.pexels.com/v1/search?query=nature&per_page=10",
           {
             headers: {
-              Authorization: API_KEY,
+              Authorization: import.meta.env.VITE_PEXELS_API_KEY,
             },
           }
         );
@@ -42,7 +26,7 @@ function Cards() {
     };
 
     fetchImages();
-  }, [API_KEY]);
+  }, []);
 
   return (
     <div>

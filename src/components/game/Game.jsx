@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Cards } from "../cards/Cards";
 import { ScoreBoard } from "../scoreboard/Scoreboard";
@@ -15,7 +14,7 @@ function Game() {
         if (!API_KEY) throw new Error("Missing API Key");
 
         const response = await fetch(
-          "https://api.pexels.com/v1/search?query=nature&per_page=10",
+          "https://api.pexels.com/v1/search?query=nature&per_page=20",
           {
             headers: { Authorization: API_KEY },
           }
@@ -68,20 +67,3 @@ function Game() {
 }
 
 export { Game };
-import { useState } from "react";
-import { Cards } from "./Cards";
-import { ScoreBoard from } "./Scoreboard";
-
-function Game() {
-  const [imageId, setImageId] = useState([])
-
-  return (
-    <div>
-      <ScoreBoard currentScore={imageId.length} />
-      <Cards imageId={imageId} setImageId={setImageId} />
-    </div>
-  )
-}
-
-export { Game };
-

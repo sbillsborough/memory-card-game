@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Cards } from "../cards/Cards";
 import { ScoreBoard } from "../scoreboard/Scoreboard";
+import { Header } from "../header/Header";
 
 function Game() {
   const [imageId, setImageId] = useState([]); // Tracks clicked images
@@ -58,11 +59,14 @@ function Game() {
   };
 
   return (
-    <div>
-      <ScoreBoard currentScore={imageId.length} bestStreak={bestStreak} />{" "}
-      {/* Fixed prop name */}
+    <>
+      <div className="header-scoreboard-wrapper">
+        <Header />
+        <ScoreBoard currentScore={imageId.length} bestStreak={bestStreak} />
+      </div>
+
       <Cards handleClick={handleClick} images={images} />
-    </div>
+    </>
   );
 }
 

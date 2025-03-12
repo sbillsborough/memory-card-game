@@ -1,6 +1,7 @@
 import "./Cards.css";
 
 function Cards({ handleClick, images = [] }) {
+  console.log("Received images:", images);
   return (
     <div>
       <h3>Cards</h3>

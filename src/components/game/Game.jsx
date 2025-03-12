@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Cards } from "./Cards";
-import { ScoreBoard } from "./ScoreBoard";
+import { Cards } from "../cards/Cards";
+import { ScoreBoard } from "../scoreboard/Scoreboard";
 
 function Game() {
   const [imageId, setImageId] = useState([]); // Tracks clicked images
@@ -8,8 +8,6 @@ function Game() {
   const [images, setImages] = useState([]); // Store images for shuffling
 
   useEffect(() => {
-    console.log("PEXELS API KEY:", import.meta.env.VITE_PEXELS_API_KEY); // Debugging
-
     const fetchImages = async () => {
       try {
         const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
@@ -31,9 +29,10 @@ function Game() {
           throw new Error("No images received from API.");
         }
 
+        console.log("📸 Received images:", data.photos);
         setImages(data.photos);
       } catch (error) {
-        console.error("Error fetching images:", error);
+        console.error("🚨 Error fetching images:", error);
         alert("Failed to load images. Check API key or network connection.");
       }
     };
@@ -60,7 +59,8 @@ function Game() {
 
   return (
     <div>
-      <ScoreBoard currentScore={imageId.length} bestStreak={bestStreak} />
+      <ScoreBoard currentScore={imageId.length} bestStreak={bestStreak} />{" "}
+      {/* Fixed prop name */}
       <Cards handleClick={handleClick} images={images} />
     </div>
   );

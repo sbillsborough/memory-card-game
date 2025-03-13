@@ -8,11 +8,4 @@
 .header-scoreboard-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: ;
-}
-
-.header-container {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
 }
